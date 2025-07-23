@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int leader = 0;    // This will store the majority number
+        int vote = 0;      // This counts how many votes that number has
+
+        for (int num : nums) {
+            if (vote == 0) {
+                leader = num;  // no leader? pick current number
+            }
+
+            if (num == leader) {
+                vote++;        // same as leader? vote up
+            } else {
+                vote--;        // different? vote down
+            }
+        }
+
+        return leader;
+    }
+};
