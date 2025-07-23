@@ -1,0 +1,28 @@
+class Solution {
+public:
+    void Reverse(vector<int> &arr) {
+        int i = 0, j = arr.size() - 1;
+        while (i < j) {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+
+    vector<int> plusOne(vector<int>& digits) {
+        vector<int> Plus;
+        int carry = 1; // start with the +1
+        
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            int sum = digits[i] + carry;
+            Plus.push_back(sum % 10);
+            carry = sum / 10;
+        }
+
+        if (carry)
+            Plus.push_back(carry);
+
+        Reverse(Plus);
+        return Plus;
+    }
+};
