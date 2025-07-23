@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minSoFar = INT_MAX;   // lowest price seen up to today
+        int maxProfit = 0;        // best profit so far
+
+        for (int price : prices) {
+            if (price < minSoFar) {
+                minSoFar = price;             // new buying opportunity
+            } else {
+                maxProfit = max(maxProfit,    // sell today?
+                                 price - minSoFar);
+            }
+        }
+        return maxProfit;  // 0 if no profitable trade exists
+    }
+};
