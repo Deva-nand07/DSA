@@ -1,0 +1,16 @@
+//General method to solve any power of problem
+
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if (n <= 0)
+            return false;
+        auto result = log(n) / log(4);
+        int check = result;
+        if (result - check == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
